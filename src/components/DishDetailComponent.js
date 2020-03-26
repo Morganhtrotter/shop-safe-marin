@@ -11,8 +11,6 @@ class DishDetail extends Component {
 	}
 
 	render() {
-		console.log('DishDetail Component render is invoked');
-		console.log(this.props.dish);
 		return(
 			<div>
 				<Card key={this.props.dish.id} >
