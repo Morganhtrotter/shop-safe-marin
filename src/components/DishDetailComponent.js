@@ -13,10 +13,12 @@ class DishDetail extends Component {
 	render() {
 		if (this.props.dish != null) {
 			return(
-			<div className="row">
-				{this.renderDish(this.props.dish)}
-	      		{this.renderComments(this.props.dish)}
-		    </div>
+				<div className="container">
+					<div className="row">
+						{this.renderDish(this.props.dish)}
+			      		{this.renderComments(this.props.dish)}
+				    </div>
+		    	</div>
 			);
 		} else {
 			return(
@@ -28,15 +30,15 @@ class DishDetail extends Component {
 	renderDish(dish) {
 		if (dish != null) {
 			return(
-				<div className="col-12 col-md-5 m-1">
-					<Card key={this.props.dish.id} >
-			        <CardImg top src={this.props.dish.image} alt={this.props.dish.name} />
-			        <CardBody>
-			          <CardTitle>{this.props.dish.name}</CardTitle>
-			          <CardText>{this.props.dish.description}</CardText>
-			        </CardBody>
-			      </Card>
-		      	</div>
+					<div className="col-12 col-md-5 m-1">
+						<Card key={this.props.dish.id} >
+				        <CardImg top src={this.props.dish.image} alt={this.props.dish.name} />
+				        <CardBody>
+				          <CardTitle>{this.props.dish.name}</CardTitle>
+				          <CardText>{this.props.dish.description}</CardText>
+				        </CardBody>
+				      </Card>
+			      	</div>
 	      	);
 		} else {
 			return(
