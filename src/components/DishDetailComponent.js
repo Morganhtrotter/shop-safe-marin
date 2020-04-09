@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle } from 'reactstrap';
 
-class DishDetail extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
 
-		};
-	}
-
-	render() {
-		if (this.props.dish != null) {
+	const DishDetail = (props) => {
+		if (props.dish != null) {
 			return(
 				<div className="container">
 					<div className="row">
-						{this.renderDish(this.props.dish)}
-			      		{this.renderComments(this.props.dish)}
+						<RenderDish dish={props.dish} />
+			      		<RenderComments dish={props.dish} />
 				    </div>
 		    	</div>
 			);
@@ -27,15 +20,15 @@ class DishDetail extends Component {
 		}
 	}
 
-	renderDish(dish) {
+	function RenderDish({dish}) {
 		if (dish != null) {
 			return(
 					<div className="col-12 col-md-5 m-1">
-						<Card key={this.props.dish.id} >
-				        <CardImg top src={this.props.dish.image} alt={this.props.dish.name} />
+						<Card key={dish.id} >
+				        <CardImg top src={dish.image} alt={dish.name} />
 				        <CardBody>
-				          <CardTitle>{this.props.dish.name}</CardTitle>
-				          <CardText>{this.props.dish.description}</CardText>
+				          <CardTitle>{dish.name}</CardTitle>
+				          <CardText>{dish.description}</CardText>
 				        </CardBody>
 				      </Card>
 			      	</div>
@@ -47,7 +40,7 @@ class DishDetail extends Component {
 		}
 	}
 
-	renderComments(dish) {
+	function RenderComments({dish}) {
       console.log(dish);
       var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -76,6 +69,6 @@ class DishDetail extends Component {
             <div></div>
           );
     }
-}
+
 
 export default DishDetail;
