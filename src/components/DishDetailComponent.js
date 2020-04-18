@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
-    CardTitle } from 'reactstrap';
+    CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom'; 
 
 
 	const DishDetail = (props) => {
@@ -8,10 +9,20 @@ import { Card, CardImg, CardText, CardBody,
 			return(
 				<div className="container">
 					<div className="row">
+	          <Breadcrumb>
+	            <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
+	            <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem> 
+	          </Breadcrumb>
+	          <div className="col-12">
+	            <h3>{props.dish.name}</h3>
+	            <hr />
+	          </div>
+	        </div>
+					<div className="row">
 						<RenderDish dish={props.dish} />
-			      		<RenderComments dish={props.dish} />
-				    </div>
-		    	</div>
+			      <RenderComments comments={props.comments} />
+				  </div>
+		    </div>
 			);
 		} else {
 			return(
@@ -40,14 +51,14 @@ import { Card, CardImg, CardText, CardBody,
 		}
 	}
 
-	function RenderComments({dish}) {
-      console.log(dish);
+	function RenderComments({comments}) {
+      console.log(comments);
       var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-      if (dish != null)
-          if (dish.comments != null) {
-            const listComments = dish.comments.map((comments) => 
-              <li>{comments.comment}<br /><br />{"--" + comments.author 
+      if (comments != null)
+          if (comments.comment != null) {
+            const listComments = comments.map((comment) => 
+              <li>{comments.comment}<br /><br />{"--" + comments.comment 
                   + " , "
                   + months[(new Date(comments.date)).getMonth()] + " "
                   + (new Date(comments.date)).getDate() + ", "
