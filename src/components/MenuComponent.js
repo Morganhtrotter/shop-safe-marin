@@ -37,13 +37,10 @@ import { Link } from 'react-router-dom';
                 </div>
               </div>
               <div className="row">
-                  {menu}
+                {menu}
               </div>
             </div>
         );
 	}
-
-
-
 
 export default Menu;
