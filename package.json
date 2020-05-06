@@ -9,6 +9,7 @@
     "bootstrap": "4.0.0",
     "bootstrap-social": "5.1.1",
     "create-react-app": "^3.4.0",
+    "cross-fetch": "2.1.0",
     "font-awesome": "4.7.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
