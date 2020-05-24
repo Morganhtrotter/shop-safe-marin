@@ -35,7 +35,7 @@ class CommentForm extends Component {
 		return(
 			<React.Fragment>
 				<Button outline color="secondary" onClick={this.toggleModal}>
-					<span className="fa fa-pencil"></span> Submit Comment
+					<span className="fa fa-pencil"></span> Submit Review
 				</Button>
 				<Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
 					<ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
@@ -199,7 +199,7 @@ function RenderComments({ comments, postComment, dishId }) {
   if (comments != null) {
     return (
       <div className="col-12 col-md-5 m-1">
-        <h4>Comments</h4>
+        <h4>Reviews</h4>
         {commentList}
         <CommentForm dishId={dishId} postComment={postComment} />
       </div>

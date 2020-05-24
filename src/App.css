@@ -78,3 +78,21 @@ h3 {
 .card:hover .cardText {
     opacity: 1;
 }
+
+.card:hover .fa-star {
+    opacity: 1;
+}
+
+.card:hover .checked {
+    opacity: 1;
+}
+
+.fa-star {
+    color: black;
+    opacity: 0.5;
+}
+
+.checked {
+    color: orange;
+    opacity: 0.5;
+}

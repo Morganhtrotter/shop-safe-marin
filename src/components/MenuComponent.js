@@ -12,6 +12,11 @@ import { baseUrl } from '../shared/baseUrl';
             <CardImgOverlay>
                 <CardTitle><span class="cardTitle">{dish.name.toUpperCase()}</span></CardTitle>
                 <CardText text="light"><span class="cardText">{dish.address}</span></CardText>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
             </CardImgOverlay>
           </Link>
         </Card>
