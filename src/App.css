@@ -11,15 +11,16 @@
 }
 
 .footer{
-    background-color: #D1C4E9;
+    background-color: #C1D7E4;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
 }
 .jumbotron {
     padding:70px 30px 70px 30px;
     margin:0px auto;
-    background: #9575CD ;
+    background: #659DBD ;
     color:floralwhite;
+    font-family: 'Raleway', sans-serif;
 }
 
 address{
@@ -29,7 +30,8 @@ address{
 }
 
 .navbar-dark {
-    background-color: #512DA8;
+    background-image: linear-gradient(to right, #283E4B, #466D84) ;
+    font-family: 'Roboto', sans-serif;
 }
 
 .page-enter {
@@ -41,4 +43,17 @@ address{
     opacity: 1;
     transform: translateX(0%);
     transition: all 300ms ease-in;
+}
+
+#MainDiv {
+    background-color: floralwhite;
+}
+
+.body {
+    font-family: 'Libre Baskerville', serif;
+}
+
+h3 {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
 }

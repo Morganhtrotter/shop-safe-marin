@@ -81,7 +81,7 @@ class Main extends Component {
 		}
 
 		return (
-	    <div>
+	    <div id="MainDiv">
 	    	<Header />
 	    		<TransitionGroup>
 	    			<CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
@@ -91,7 +91,7 @@ class Main extends Component {
 				    		<Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
 				    		<Route path="/menu/:dishId" component={DishWithId} />
 				    		<Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm}
-				    																												postFeedback={this.props.postFeedback} />} />
+				    				postFeedback={this.props.postFeedback} />} />
 				    		<Redirect to="/home" />
 				    	</Switch>
 				    </CSSTransition>

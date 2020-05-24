@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, Label, Row, Col,
-    CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+    CardTitle, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
@@ -125,10 +125,12 @@ const DishDetail = (props) => {
 		return(
 			<div className="container">
 				<div className="row">
+			{/*
           <Breadcrumb>
             <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem> 
           </Breadcrumb>
+          	*/}
           <div className="col-12">
             <h3>{props.dish.name}</h3>
             <hr />

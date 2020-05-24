@@ -13,7 +13,7 @@ class Header extends Component {
 		};
 		this.toggleNav = this.toggleNav.bind(this);
 		this.toggleModal = this.toggleModal.bind(this);
-		this.handleLogin = this.handleLogin.bind(this);
+		//this.handleLogin = this.handleLogin.bind(this);
 	}
 
 	toggleNav() {
@@ -28,11 +28,13 @@ class Header extends Component {
 		});
 	}
 
+	/*
 	handleLogin(event) {
 		this.toggleModal();
 		alert("Username: " + this.username.value + " Password: " + this.password.value + " Remember: " + this.remember.checked);
 		event.preventDefault();
 	}
+	*/
 
 	render() {
 		return(
@@ -41,31 +43,32 @@ class Header extends Component {
 	        <div className="container">
 	        	<NavbarToggler onClick={this.toggleNav} />
 	          <NavbarBrand className="mr-auto" href="/">
-	          	<img src="../assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
+	          	<img src="../assets/images/logo.png" class="float-right"  height="30" width="41" alt="logo.png" />
 	          </NavbarBrand>
 	          <Collapse isOpen={this.state.isNavOpen} navbar>
 		          <Nav navbar>
 		          	<NavItem>
 		          		<NavLink className="nav-link" to="/home">
-		          			<span className="fa fa-home fa-lg"></span> Home
+		          			<span></span> Home
 		          		</NavLink>
 		          	</NavItem>
 		          	<NavItem>
 		          		<NavLink className="nav-link" to="/aboutus">
-		          			<span className="fa fa-info fa-lg"></span> About Us
+		          			<span></span> About Us
 		          		</NavLink>
 		          	</NavItem>
 		          	<NavItem>
 		          		<NavLink className="nav-link" to="/menu">
-		          			<span className="fa fa-list fa-lg"></span> Menu
+		          			<span></span> Stores
 		          		</NavLink>
 		          	</NavItem>
 		          	<NavItem>
 		          		<NavLink className="nav-link" to="/contactus">
-		          			<span className="fa fa-address-card fa-lg"></span> Contact Us
+		          			<span></span> Contact Us
 		          		</NavLink>
 		          	</NavItem>
 		          </Nav>
+		          {/*
 		          <Nav className="ml-auto" navbar>
 		          	<NavItem>
 		          		<Button outline onClick={this.toggleModal}>
@@ -73,6 +76,7 @@ class Header extends Component {
 		          		</Button>
 		          	</NavItem>
 		          </Nav>
+		          */}
 	          </Collapse>
 	        </div>
 	      </Navbar>
@@ -80,8 +84,8 @@ class Header extends Component {
 	      	<div className="container">
 	      		<div className="row row-header">
 	      			<div className="col-12 col-sm-6">
-	      				<h1>Ristorante Con Fusion</h1>
-	      				<p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+	      				<h1>Shop Safe Marin</h1>
+	      				<p class="body">See health and safety reviews of all major shops located in Marin County. And post your own.</p>
 	      			</div>
 	      		</div>
 	      	</div>
