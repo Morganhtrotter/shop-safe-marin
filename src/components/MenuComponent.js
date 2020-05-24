@@ -1,16 +1,17 @@
 import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle, } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
 	function RenderMenuItem({ dish, onClick }) {
 		return(
-		    <Card>
+		    <Card class="card">
           <Link to={`/menu/${dish.id}`} >
             <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
             <CardImgOverlay>
-                <CardTitle>{dish.name}</CardTitle>
+                <CardTitle><span class="cardTitle">{dish.name.toUpperCase()}</span></CardTitle>
+                <CardText text="light"><span class="cardText">{dish.address}</span></CardText>
             </CardImgOverlay>
           </Link>
         </Card>

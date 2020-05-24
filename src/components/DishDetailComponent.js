@@ -78,7 +78,7 @@ class CommentForm extends Component {
 								</Col>
 							</Row>
 							<Row className="from-group">
-								<Label htmlFor="comment" md={10}>Comment</Label>
+								<Label htmlFor="comment" md={10}>Review</Label>
 							</Row>
 							<Row className="form-group">
 								<Col>
@@ -132,7 +132,7 @@ const DishDetail = (props) => {
           </Breadcrumb>
           	*/}
           <div className="col-12">
-            <h3>{props.dish.name}</h3>
+            <h3>{props.dish.name.toUpperCase() + ", " + props.dish.address.toUpperCase()}</h3>
             <hr />
           </div>
         </div>

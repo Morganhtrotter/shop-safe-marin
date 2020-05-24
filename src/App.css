@@ -57,3 +57,24 @@ h3 {
     margin-top: 20px;
     font-family: 'Montserrat', sans-serif;
 }
+
+.cardText {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    opacity: 0.5;
+}
+
+.cardTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 48pt;
+    opacity: 0.5;
+}
+
+.card:hover .cardTitle {
+    opacity: 1;
+}
+
+.card:hover .cardText {
+    opacity: 1;
+}
