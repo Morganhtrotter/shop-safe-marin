@@ -10,6 +10,8 @@ import OneStar from './OneStarComponent';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
+const required = (val) => val && val.length;
+const validEmail = (val) => !/^[^!@#$%^&*]*(fuck|ass|shit|cunt)[^!@#$%^&*]*/i.test(val);
 
 class CommentForm extends Component {
 	constructor(props) {
@@ -43,12 +45,13 @@ class CommentForm extends Component {
 					<ModalBody>
 						<LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 							<Row className="form-group">
-								<Label htmlFor="rating" md={2}>Rating</Label>
+								<Label htmlFor="rating" md={2}>Stars</Label>
 							</Row>
 							<Row className="form-group">
 								<Col>
 									<Control.select model=".rating" id="rating" name="rating" className="form-control">
-										<option value="1"><OneStar /></option>
+										<option value="0">0</option>
+										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
 										<option value="4">4</option>
@@ -85,7 +88,18 @@ class CommentForm extends Component {
 								<Col>
 									<Control.textarea model=".comment" id="comment" name="comment"
 											rows="6"
-											className="form-control" />
+											className="form-control"
+											validators={{
+												required, validEmail
+											}} />
+									<Errors
+                                        className="text-danger"
+                                        model=".comment"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            validEmail: 'Your language is outrageous'
+                                        }}	/>
 								</Col>
 							</Row>
 							<Row>
