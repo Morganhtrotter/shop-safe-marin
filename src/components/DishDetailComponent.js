@@ -6,6 +6,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import OneStar from './OneStarComponent';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
@@ -47,7 +48,7 @@ class CommentForm extends Component {
 							<Row className="form-group">
 								<Col>
 									<Control.select model=".rating" id="rating" name="rating" className="form-control">
-										<option value="1">1</option>
+										<option value="1"><OneStar /></option>
 										<option value="2">2</option>
 										<option value="3">3</option>
 										<option value="4">4</option>
