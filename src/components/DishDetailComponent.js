@@ -284,7 +284,7 @@ const DishDetail = (props) => {
           </div>
         </div>
 				<div className="row">
-					<RenderDish dish={props.dish} />
+					<RenderDish dish={props.dish} comments={props.comments}/>
 		      <RenderComments comments={props.comments}
 		      		postComment={props.postComment}
 		      		dishId={props.dish.id} />
@@ -298,7 +298,80 @@ const DishDetail = (props) => {
 	}
 }
 
-function RenderDish({dish}) {
+function RenderDish({ dish, comments }) {
+	var percentMasks = 0;
+	var percentCarts = 0;
+	var percentSanitizer = 0;
+	var percentMonitor = 0;
+	var percentOneway = 0;
+	var percentRegister = 0;
+	var percentCard = 0;
+	var percentCust = 0;
+	var percentGloves = 0;
+	var percentCurb = 0;
+	var percentDeliver = 0;
+	if (comments != null) {
+		var numMasks = 0;
+		var numCarts = 0;
+		var numSanitizer = 0;
+		var numMonitor = 0;
+		var numOneway = 0;
+		var numRegister = 0;
+		var numCard = 0;
+		var numCust = 0;
+		var numGloves = 0;
+		var numCurb = 0;
+		var numDelivery = 0;
+		var count = 0;
+		const getChecklist = comments.map((comment) => {
+			if (comment.masks != null) {
+				numMasks++;
+			}
+			if (comment.carts != null) {
+				numCarts++;
+			}
+			if (comment.sanitizer != null) {
+				numSanitizer++;
+			}
+			if (comment.monitor != null) {
+				numMonitor++;
+			}
+			if (comment.oneway != null) {
+				numOneway++;
+			}
+			if (comment.register != null) {
+				numRegister++;
+			}
+			if (comment.card != null) {
+				numCard++;
+			}
+			if (comment.numcust != null) {
+				numCust++;
+			}
+			if (comment.gloves != null) {
+				numGloves++;
+			}
+			if (comment.curb != null) {
+				numCurb++;
+			}
+			if (comment.delivery != null) {
+				numDelivery++;
+			}
+			count++;
+		});
+		percentMasks = numMasks / count;
+		percentCarts = numCarts / count;
+		percentSanitizer = numSanitizer / count;
+		percentMonitor = numMonitor / count;
+		percentOneway = numOneway / count;
+		percentRegister = numRegister / count;
+		percentCard = numCard / count;
+		percentCust = numCust / count;
+		percentGloves = numGloves / count;
+		percentCurb = numCurb / count;
+		percentDeliver = numDelivery / count;
+	}
+
 	if (dish != null) {
 		return(
 			<div className="col-12 col-md-5 m-1">
@@ -310,7 +383,17 @@ function RenderDish({dish}) {
 				    <CardImg top src={baseUrl + dish.image} alt={dish.name} />
 			      <CardBody>
 			        <CardTitle>{dish.name}</CardTitle>
-			        <CardText>{dish.description}</CardText>
+			        <CardText>{Math.round(percentMasks * 100)}% of users say this store requires masks.</CardText>
+			        <CardText>{Math.round(percentCarts * 100)}% of users say this store disinfects carts.</CardText>
+			        <CardText>{Math.round(percentSanitizer * 100)}% of users say this store provides hand sanitizer upon entry/exit.</CardText>
+			        <CardText>{Math.round(percentMonitor * 100)}% of users say this store has employee(s) monitoring the entrance.</CardText>
+			        <CardText>{Math.round(percentOneway * 100)}% of users say this store has one-way isles.</CardText>
+			        <CardText>{Math.round(percentRegister * 100)}% of users say this store enforces social distancing at the register.</CardText>
+			        <CardText>{Math.round(percentCard * 100)}% of users say this store is card-only.</CardText>
+			        <CardText>{Math.round(percentCust * 100)}% of users say this store controls the number of customers in the store.</CardText>
+			        <CardText>{Math.round(percentGloves * 100)}% of users say this store offers gloves to customers.</CardText>
+			        <CardText>{Math.round(percentCurb * 100)}% of users say this store offers curbside pick-up.</CardText>
+			        <CardText>{Math.round(percentDeliver * 100)}% of users say this store offers delivery.</CardText>
 			      </CardBody>
 				  </Card>
 			  </FadeTransform>
