@@ -11,7 +11,7 @@ import OneStar from './OneStarComponent';
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 const required = (val) => val && val.length;
-const validEmail = (val) => !/^[^!@#$%^&*]*(fuck|ass|shit|cunt)[^!@#$%^&*]*/i.test(val);
+const validEmail = (val) => !/^[^!@#$%^&*]*(fuck| ass|shit|cunt|piss|dick|fag|pussy|nigger|chink|cock|twat| cum|boobs|bitch)[^!@#$%^&*]*/i.test(val);
 
 class CommentForm extends Component {
 	constructor(props) {
@@ -31,8 +31,8 @@ class CommentForm extends Component {
 
 	handleSubmit(values) {
       this.toggleModal();
-      this.props.postComment(this.props.dishId, values.rating, values.yourname, values.comment);
-  }
+      this.props.postComment(this.props.dishId, values.rating, values.yourname, values.comment, values.masks, values.carts, values.sanitizer, values.monitor, values.oneway, values.register, values.card, values.numcust, values.gloves, values.curb, values.delivery);
+	}
 
 	render() {
 		return(
@@ -41,7 +41,7 @@ class CommentForm extends Component {
 					<span className="fa fa-pencil"></span> Submit Review
 				</Button>
 				<Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-					<ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+					<ModalHeader toggle={this.toggleModal}>Submit Reviews</ModalHeader>
 					<ModalBody>
 						<LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 							<Row className="form-group">
@@ -79,6 +79,138 @@ class CommentForm extends Component {
 												maxLength: 'Must be 15 characters or less'
 											}}
 									/>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".masks" id="masks" name="masks"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Do they require Masks?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".carts" id="carts" name="carts"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Disinfects carts?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".sanitizer" id="sanitizer" name="sanitizer"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Provides hand sanitizer upon entry/exit?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".monitor" id="monitor" name="monitor"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Has empoyee(s) monitoring the entrance?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".oneway" id="oneway" name="oneway"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>One-way Isles?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".register" id="register" name="register"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Social Distancing measures enforced at the register?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".card" id="card" name="card"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Card-only payment?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".numcust" id="numcust" name="numcust"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Controls the number of customers in the store?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".gloves" id="gloves" name="gloves"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Offers gloves to customers?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".curb" id="curb" name="curb"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Curbside pick-up available?</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".delivery" id="delivery" name="delivery"
+                                                className="form-check-input"
+                                                /> {' '}
+                                            <span>Delivery available?</span>
+                                        </Label>
+                                    </div>
 								</Col>
 							</Row>
 							<Row className="from-group">

@@ -6,14 +6,26 @@ export const addComment = (comment) => ({
 	payload: comment
 });
 
-export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+export const postComment = (dishId, rating, author, comment, masks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery) => (dispatch) => {
 	const newComment = {
 		dishId: dishId,
 		rating: rating,
 		author: author,
-		comment: comment
+		comment: comment,
+		masks: masks,
+		carts: carts,
+		sanitizer: sanitizer,
+		monitor: monitor,
+		oneway: oneway,
+		register: register,
+		card: card,
+		numcust: numcust,
+		gloves: gloves,
+		curb: curb,
+		delivery: delivery
 	}
 	newComment.date = new Date().toISOString();
+	console.log(newComment);
 
 	return fetch(baseUrl + 'comments', {
 		method: 'POST',
@@ -24,6 +36,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
 		credentials: 'same-origin'
 	})
 		.then(response => {
+			console.log(response);
 			if (response.ok) {
 				return response;
 			}

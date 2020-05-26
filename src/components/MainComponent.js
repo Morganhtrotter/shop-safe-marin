@@ -18,11 +18,11 @@ const mapStateToProps = state => {
 		comments: state.comments,
 		promotions: state.promotions,
 		leaders: state.leaders
-	}	
+	}
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
+	postComment: (dishId, rating, author, comment, masks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery) => dispatch(postComment(dishId, rating, author, comment, masks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery)),
 	fetchDishes: () => {dispatch(fetchDishes())},
 	resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
 	fetchComments: () => {dispatch(fetchComments())},
@@ -46,8 +46,6 @@ class Main extends Component {
 	render() {
 
 		const HomePage = () => {
-			console.log(this.props.leaders);
-			console.log(this.props.dishes);
 			return(
 				<Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
 					dishesLoading={this.props.dishes.isLoading}
