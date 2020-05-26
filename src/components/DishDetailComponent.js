@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, Label, Row, Col,
     CardTitle, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
-import OneStar from './OneStarComponent';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
@@ -323,7 +321,7 @@ function RenderDish({ dish, comments }) {
 		var numCurb = 0;
 		var numDelivery = 0;
 		var count = 0;
-		const getChecklist = comments.map((comment) => {
+		comments.map((comment) => {
 			if (comment.masks != null) {
 				numMasks++;
 			}

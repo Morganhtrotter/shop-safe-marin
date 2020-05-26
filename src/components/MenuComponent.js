@@ -15,7 +15,7 @@ function RenderMenuItem({ dish, comments, onClick }) {
   var count = 0;
   var stars = 0;
   
-  const getStars = comments.map((comment) => {
+  comments.map((comment) => {
     sumStars += parseInt(comment.rating);
     count++;
   });
@@ -37,19 +37,19 @@ function RenderMenuItem({ dish, comments, onClick }) {
 }
 
 function GetStars(props) {
-  if (props.stars == 1) {
+  if (props.stars === 1) {
     return(
       <OneStar />
     );
-  } else if (props.stars == 2) {
+  } else if (props.stars === 2) {
     return(
       <TwoStar />
     );
-  } else if (props.stars == 3) {
+  } else if (props.stars === 3) {
     return(
       <ThreeStar />
     );
-  } else if (props.stars == 4) {
+  } else if (props.stars === 4) {
     return(
       <FourStar />
     );
