@@ -357,6 +357,9 @@ function RenderDish({ dish, comments }) {
 			}
 			count++;
 		});
+		if (count === 0) {
+			count++;
+		}
 		percentMasks = numMasks / count;
 		percentCarts = numCarts / count;
 		percentSanitizer = numSanitizer / count;
@@ -368,6 +371,7 @@ function RenderDish({ dish, comments }) {
 		percentGloves = numGloves / count;
 		percentCurb = numCurb / count;
 		percentDeliver = numDelivery / count;
+
 	}
 
 	if (dish != null) {
