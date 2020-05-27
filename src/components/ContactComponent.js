@@ -107,7 +107,7 @@ class Contact extends Component {
                                         model=".lastname"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
+                                            required: 'Required ',
                                             minLength: 'Must be greater than two characters',
                                             maxLength: 'Must be 15 characters or less'
                                         }}
@@ -129,9 +129,9 @@ class Contact extends Component {
                                         model=".telnum"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than two numbers',
-                                            maxLength: 'Must be 15 numbers or less',
+                                            required: 'Required ',
+                                            minLength: 'Must be greater than two numbers ',
+                                            maxLength: 'Must be 15 numbers or less ',
                                             isNumber: 'Must be a number'
                                         }}
                                     />
@@ -152,7 +152,7 @@ class Contact extends Component {
                                         model=".email"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
+                                            required: 'Required ',
                                             validEmail: 'Invalid Email Address'
                                         }}
                                     />

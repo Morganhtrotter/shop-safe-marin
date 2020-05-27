@@ -1,5 +1,6 @@
-import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle, CardText } from 'reactstrap';
+import React, { Component } from 'react';
+import { Card, CardImg, CardImgOverlay, CardTitle, CardText, Row, Col, Button, Label } from 'reactstrap';
+import { Control, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
@@ -10,7 +11,6 @@ import FourStar from './FourStarComponent';
 import FiveStar from './FiveStarComponent';
 
 function RenderMenuItem({ dish, comments, onClick }) {
-  console.log(comments);
   var sumStars = 0;
   var count = 0;
   var stars = 0;
@@ -20,19 +20,18 @@ function RenderMenuItem({ dish, comments, onClick }) {
     count++;
   });
   stars = Math.round(sumStars / count);
-  console.log(stars);
 
 	return(
-	    <Card class="card">
-        <Link to={`/menu/${dish.id}`} >
-          <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
-          <CardImgOverlay>
-              <CardTitle><span class="cardTitle">{dish.name.toUpperCase()}</span></CardTitle>
-              <CardText text="light"><span class="cardText">{dish.address}</span></CardText>
-              <GetStars stars={stars} />
-          </CardImgOverlay>
-        </Link>
-      </Card>
+    <Card class="card">
+      <Link to={`/menu/${dish.id}`} >
+        <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+        <CardImgOverlay>
+            <CardTitle><span class="cardTitle">{dish.name.toUpperCase()}</span></CardTitle>
+            <CardText text="light"><span class="cardText">{dish.address}</span></CardText>
+            <GetStars stars={stars} />
+        </CardImgOverlay>
+      </Link>
+    </Card>
 	);
 }
 
@@ -60,8 +59,72 @@ function GetStars(props) {
   }
 }
 
+class FilterForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(values) {
+    console.log(values.city);
+    this.props.setFilter(values.filter + ";" + values.city);
+  }
+
+  render() {
+    return(
+      <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+        <Row className="form-group">
+          <Label htmlFor="store" className="mt-1 ml-4">Store:</Label>
+          <Col md={3}>
+            <Control.select model=".filter" id="filter" name="filter" className="form-control" defaultValue="--">
+              <option value="--">--</option>
+              <option value="Safeway">Safeway</option>
+              <option value="Whole Foods">Whole Foods</option>
+              <option value="Luckys">Luckys</option>
+              <option value="Sprouts">Sprouts</option>
+            </Control.select>
+          </Col>
+          <Label htmlFor="city" className="mt-1 ml-4">City:</Label>
+          <Col md={3}>
+            <Control.select model=".city" id="city" name="city" className="form-control mb-4" defaultValue="--">
+              <option>--</option>
+              <option value="Corte Madera">Corte Madera</option>
+              <option value="Mill Valley">Mill Valley</option>
+              <option value="San Rafael">San Rafael</option>
+              <option value="Sausolito">Sausolito</option>
+            </Control.select>
+          </Col>
+          <Col md={3}>
+              <Button type="submit" color="primary">
+                  Filter
+              </Button>
+          </Col>
+        </Row>
+      </LocalForm>
+    );
+  };
+}
+
 const Menu = (props) => {
-	const menu = props.dishes.dishes.map((dish) => {
+  const [filter, setFilter] = React.useState(null);
+  var filterArr = ["--", "--"];
+
+  if (filter !== null) {
+    filterArr = filter.split(';');
+    console.log(filterArr[1]);
+  }  
+  let dishes = props.dishes.dishes;
+  if (filter !== null) {
+    if (filterArr[0] !== null && filterArr[0] !== "--") {
+      dishes = dishes.filter((dish) => dish.name === filterArr[0]);
+    }
+    if (filterArr[1] !== null && filterArr[1] !== "--") {
+      dishes = dishes.filter((dish) => dish.city === filterArr[1]);
+    }
+  }
+
+	const menu = dishes.map((dish) => {
       return (
         <div key={dish.id} className="col-12 col-md-5 m-1">
         	<RenderMenuItem dish={dish} comments={props.comments.comments.filter((comments) => comments.dishId === dish.id)} />
@@ -89,23 +152,24 @@ const Menu = (props) => {
   }
   else
     return (
-        <div className="container">
-          <div className="row">
-            {/*
-            <Breadcrumb>
-              <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-              <BreadcrumbItem active>Menu</BreadcrumbItem> 
-            </Breadcrumb>
-            */}
-            <div className="col-12">
-              <h3>STORES</h3>
-              <hr />
-            </div>
-          </div>
-          <div className="row">
-            {menu}
+      <div className="container">
+        <div className="row">
+          {/*
+          <Breadcrumb>
+            <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+            <BreadcrumbItem active>Menu</BreadcrumbItem> 
+          </Breadcrumb>
+          */}
+          <div className="col-12">
+            <h3>STORES</h3>
+            <FilterForm setFilter={setFilter} />
+            <hr />
           </div>
         </div>
+        <div className="row">
+          {menu}
+        </div>
+      </div>
     );
 }
 

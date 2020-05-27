@@ -48,7 +48,6 @@ class CommentForm extends Component {
 							<Row className="form-group">
 								<Col>
 									<Control.select model=".rating" id="rating" name="rating" className="form-control">
-										<option value="0">0</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -227,7 +226,7 @@ class CommentForm extends Component {
                                         model=".comment"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
+                                            required: 'Required ',
                                             validEmail: 'Your language is outrageous'
                                         }}	/>
 								</Col>
