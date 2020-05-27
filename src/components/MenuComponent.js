@@ -79,10 +79,33 @@ class FilterForm extends Component {
           <Col md={3}>
             <Control.select model=".filter" id="filter" name="filter" className="form-control" defaultValue="--">
               <option value="--">--</option>
-              <option value="Safeway">Safeway</option>
-              <option value="Whole Foods">Whole Foods</option>
+              <option value="Andronico's">Andronico's</option>
+              <option value="Andy's Local Market">Andy's Local Market</option>
+              <option value="Andy's Sun Valley Market">Andy's Sun Valley Market</option>
+              <option value="Cardenas Market">Cardenas Market</option>
+              <option value="Costco Wholesale">Costco Wholesale</option>
+              <option value="CVS">CVS</option>
+              <option value="Fairfax Market">Fairfax Market</option>
+              <option value="Good Earth">Good Earth</option>
+              <option value="Harvest Market & Grocery">Harvest Market & Grocery</option>
+              <option value="Inverness Store">Inverness Store</option>
               <option value="Luckys">Luckys</option>
+              <option value="Mollie Stone's">Mollie Stone's</option>
+              <option value="More For Less">More For Less</option>
+              <option value="Novato Market">Novato Market</option>
+              <option value="Nugget">Nugget</option>
+              <option value="Palace Market">Palace Market</option>
+              <option value="Safeway">Safeway</option>
+              <option value="Sausalito Market">Sausalito</option>
+              <option value="Scotty's Market">Scotty's Market</option>
+              <option value="Smart & Final">Smart & Final</option>
               <option value="Sprouts">Sprouts</option>
+              <option value="Target">Target</option>
+              <option value="Trader Joe's">Trader Joe's</option>
+              <option value="United">United</option>
+              <option value="Walgreens">Walgreens</option>
+              <option value="Whole Foods">Whole Foods</option>
+              <option value="Woodlands">Woodlands</option>
             </Control.select>
           </Col>
           <Label htmlFor="city" className="mt-1 ml-4">City:</Label>
@@ -90,9 +113,19 @@ class FilterForm extends Component {
             <Control.select model=".city" id="city" name="city" className="form-control mb-4" defaultValue="--">
               <option>--</option>
               <option value="Corte Madera">Corte Madera</option>
+              <option value="Fairfax">Fairfax</option>
+              <option value="Greenbrae">Greenbrae</option>
+              <option value="Inverness">Inverness</option>
+              <option value="Kentfield">Kentfield</option>
+              <option value="Larkspur">Larkspur</option>
               <option value="Mill Valley">Mill Valley</option>
+              <option value="Novato">Novato</option>
+              <option value="Point Reyes">Point Reyes</option>
+              <option value="San Anselmo">San Anselmo</option>
               <option value="San Rafael">San Rafael</option>
-              <option value="Sausolito">Sausolito</option>
+              <option value="Sausalito">Sausalito</option>
+              <option value="Stinson Beach">Stinson Beach</option>
+              <option value="Tiburon">Tiburon</option>
             </Control.select>
           </Col>
           <Col md={3}>
