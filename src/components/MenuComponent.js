@@ -93,7 +93,7 @@ class FilterForm extends Component {
               <option value="Good Earth">Good Earth</option>
               <option value="Harvest Market & Grocery">Harvest Market & Grocery</option>
               <option value="Inverness Store">Inverness Store</option>
-              <option value="Luckys">Luckys</option>
+              <option value="Lucky">Lucky</option>
               <option value="Mollie Stone's">Mollie Stone's</option>
               <option value="More For Less">More For Less</option>
               <option value="Novato Market">Novato Market</option>

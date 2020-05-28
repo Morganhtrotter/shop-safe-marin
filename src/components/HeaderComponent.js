@@ -42,9 +42,11 @@ class Header extends Component {
 				<Navbar dark expand="md">
 	        <div className="container">
 	        	<NavbarToggler onClick={this.toggleNav} />
+	        	{/*
 	          <NavbarBrand className="mr-auto" href="/">
 	          	<img src="../assets/images/logo.png" class="float-right"  height="30" width="41" alt="logo.png" />
 	          </NavbarBrand>
+	          	*/}
 	          <Collapse isOpen={this.state.isNavOpen} navbar>
 		          <Nav navbar>
 		          	<NavItem>
@@ -85,7 +87,7 @@ class Header extends Component {
 	      		<div className="row row-header">
 	      			<div className="col-12 col-sm-6">
 	      				<h1>Shop Safe Marin</h1>
-	      				<p class="body">See health and safety reviews of all major shops located in Marin County. And post your own.</p>
+	      				<p class="body">A single source of health and safety information on grocery stores located in Marin County. Submit your reviews now to help us foster a safer shopping environment.</p>
 	      			</div>
 	      		</div>
 	      	</div>
