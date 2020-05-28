@@ -6,7 +6,7 @@ import { FadeTransform } from 'react-animation-components';
 
 function Home(props) {
 	return(
-		<div className="container">
+		<div className="bg">
 		
 		</div>
 	);

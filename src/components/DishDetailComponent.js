@@ -381,7 +381,7 @@ function RenderDish({ dish, comments }) {
 						exitTransform: 'scale(0.5) translateY(-50%)'
 					}}>
 					<Card key={dish.id} >
-				    <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+				    <CardImg className="cardimg" top src={baseUrl + dish.image} alt={dish.name} />
 			      <CardBody>
 			        <CardTitle>{dish.name}</CardTitle>
 			        <CardText>{Math.round(percentMasks * 100)}% of users say this store requires masks.</CardText>
@@ -427,6 +427,16 @@ function RenderComments({ comments, postComment, dishId }) {
       </ul>
     );
   });
+
+  if (comments.length === 0) {
+  	return (
+  		<div className="col-12 col-md-5 m-1">
+	        <h4>Reviews</h4>
+	        <p>No Reviews Yet. Be the first to post a review.</p>
+	        <CommentForm dishId={dishId} postComment={postComment} />
+      	</div>
+  	);
+  }
   if (comments != null) {
     return (
       <div className="col-12 col-md-5 m-1">
@@ -436,7 +446,9 @@ function RenderComments({ comments, postComment, dishId }) {
       </div>
     );
   } else {
-    return <div />;
+    return (
+    	<div />
+    );
   }
 }
 

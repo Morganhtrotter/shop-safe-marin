@@ -52,9 +52,13 @@ function GetStars(props) {
     return(
       <FourStar />
     );
-  } else {
+  } else if (props.stars === 5) {
     return(
       <FiveStar />
+    );
+  } else {
+    return(
+      <p className="cardText">No reviews yet.</p>
     );
   }
 }
@@ -96,7 +100,7 @@ class FilterForm extends Component {
               <option value="Nugget">Nugget</option>
               <option value="Palace Market">Palace Market</option>
               <option value="Safeway">Safeway</option>
-              <option value="Sausalito Market">Sausalito</option>
+              <option value="Sausalito Market">Sausalito Market</option>
               <option value="Scotty's Market">Scotty's Market</option>
               <option value="Smart & Final">Smart & Final</option>
               <option value="Sprouts">Sprouts</option>
@@ -165,6 +169,8 @@ const Menu = (props) => {
       );
   });
 
+  console.log(menu.length);
+
   if (props.dishes.isLoading) {
     return(
       <div className="container">
@@ -183,7 +189,7 @@ const Menu = (props) => {
       </div>
     );
   }
-  else
+  else if (menu.length > 0) {
     return (
       <div className="container">
         <div className="row">
@@ -204,6 +210,22 @@ const Menu = (props) => {
         </div>
       </div>
     );
+  } else {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <h3>STORES</h3>
+            <FilterForm setFilter={setFilter} />
+            <hr />
+          </div>
+        </div>
+        <div className="row">
+          <p>No stores match your filter. Please try again.</p>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Menu;
