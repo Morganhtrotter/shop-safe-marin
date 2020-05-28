@@ -35,7 +35,7 @@ function About(props) {
                 <div className="col-12 col-md-5">
                     <Card>
                         <CardHeader className="bg-primary text-white">Facts At a Glance</CardHeader>
-                        <CardBody>
+                        <CardBody className="cardbg">
                             <dl className="row p-1">
                                 <dt className="col-6">Started</dt>
                                 <dd className="col-6">14 May 2020</dd>

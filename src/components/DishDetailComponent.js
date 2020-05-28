@@ -62,17 +62,16 @@ class CommentForm extends Component {
 							<Row className="form-group">
 								<Col>
 									<Control.text model=".yourname" id="yourname" name="yourname"
-											placeholder="Your Name"
+											placeholder="Your Name (optional)"
 											className="form-control"
 											validators={{
-												minLength: minLength(3), maxLength: maxLength(15)
+												maxLength: maxLength(15)
 											}} />
 									<Errors 
 											className="text-danger"
 											model=".yourname"
 											show="touched"
 											messages={{
-												minLength: 'Must be greater than 2 characters',
 												maxLength: 'Must be 15 characters or less'
 											}}
 									/>
