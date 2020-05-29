@@ -5,6 +5,11 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import OneStar from './OneStarComponent';
+import TwoStar from './TwoStarComponent';
+import ThreeStar from './ThreeStarComponent';
+import FourStar from './FourStarComponent';
+import FiveStar from './FiveStarComponent';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
@@ -43,11 +48,11 @@ class CommentForm extends Component {
 					<ModalBody>
 						<LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 							<Row className="form-group">
-								<Label htmlFor="rating" md={2}>Stars</Label>
+								<Label htmlFor="rating" md={10}>Stars</Label>
 							</Row>
 							<Row className="form-group">
 								<Col>
-									<Control.select model=".rating" id="rating" name="rating" className="form-control select">
+									<Control.select model=".rating" id="rating" name="rating" className="form-control">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -63,7 +68,7 @@ class CommentForm extends Component {
 								<Col>
 									<Control.text model=".yourname" id="yourname" name="yourname"
 											placeholder="Your Name (optional)"
-											className="form-control select"
+											className="form-control"
 											validators={{
 												maxLength: maxLength(15)
 											}} />
@@ -76,6 +81,11 @@ class CommentForm extends Component {
 											}}
 									/>
 								</Col>
+							</Row>
+							<Row className="form-group">
+							
+									<Label htmlFor="checklist" md={10}>Check for yes or leave blank for no:</Label>
+								
 							</Row>
 							<Row className="form-group">
 								<Col>
@@ -279,12 +289,12 @@ const DishDetail = (props) => {
             <hr />
           </div>
         </div>
-				<div className="row">
-					<RenderDish dish={props.dish} comments={props.comments}/>
-		      <RenderComments comments={props.comments}
+			<div className="row">
+				<RenderDish dish={props.dish} comments={props.comments}/>
+	      		<RenderComments comments={props.comments}
 		      		postComment={props.postComment}
 		      		dishId={props.dish.id} />
-			  </div>
+		  	</div>
 	    </div>
 		);
 	} else {
@@ -407,7 +417,14 @@ function RenderDish({ dish, comments }) {
 }
 
 function RenderComments({ comments, postComment, dishId }) {
+  var sumStars = 0;
+  var count = 0;
+  var stars = 0;
+
   const commentList = comments.map((comment) => {
+	sumStars += parseInt(comment.rating);
+    count++;
+
     return (
       <ul key={comment.id} className="list-unstyled">
       	<Stagger in>
@@ -427,9 +444,13 @@ function RenderComments({ comments, postComment, dishId }) {
     );
   });
 
+  stars = Math.round(sumStars / count);
+
   if (comments.length === 0) {
   	return (
   		<div className="col-12 col-md-5 m-1">
+  			<p>No star ratings yet.</p>
+  			<br />
 	        <h4>Reviews</h4>
 	        <p>No Reviews Yet. Be the first to post a review.</p>
 	        <CommentForm dishId={dishId} postComment={postComment} />
@@ -439,6 +460,8 @@ function RenderComments({ comments, postComment, dishId }) {
   if (comments != null) {
     return (
       <div className="col-12 col-md-5 m-1">
+      	<GetStars stars={stars} />
+      	<br />
         <h4>Reviews</h4>
         {commentList}
         <CommentForm dishId={dishId} postComment={postComment} />
@@ -447,6 +470,34 @@ function RenderComments({ comments, postComment, dishId }) {
   } else {
     return (
     	<div />
+    );
+  }
+}
+
+function GetStars(props) {
+  if (props.stars === 1) {
+    return(
+      <OneStar />
+    );
+  } else if (props.stars === 2) {
+    return(
+      <TwoStar />
+    );
+  } else if (props.stars === 3) {
+    return(
+      <ThreeStar />
+    );
+  } else if (props.stars === 4) {
+    return(
+      <FourStar />
+    );
+  } else if (props.stars === 5) {
+    return(
+      <FiveStar />
+    );
+  } else {
+    return(
+      <p className="cardText">No star ratings yet.</p>
     );
   }
 }
