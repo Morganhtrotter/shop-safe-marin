@@ -51,22 +51,22 @@ class Header extends Component {
 		          <Nav navbar>
 		          	<NavItem>
 		          		<NavLink className="nav-link" to="/home">
-		          			<span></span> Home
-		          		</NavLink>
-		          	</NavItem>
-		          	<NavItem>
-		          		<NavLink className="nav-link" to="/aboutus">
-		          			<span></span> About Us
+		          			<span></span> HOME
 		          		</NavLink>
 		          	</NavItem>
 		          	<NavItem>
 		          		<NavLink className="nav-link" to="/menu">
-		          			<span></span> Stores
+		          			<span></span> STORES
+		          		</NavLink>
+		          	</NavItem>
+		          	<NavItem>
+		          		<NavLink className="nav-link" to="/aboutus">
+		          			<span></span> ABOUT US
 		          		</NavLink>
 		          	</NavItem>
 		          	<NavItem>
 		          		<NavLink className="nav-link" to="/contactus">
-		          			<span></span> Contact Us
+		          			<span></span> CONTACT US
 		          		</NavLink>
 		          	</NavItem>
 		          </Nav>
@@ -86,7 +86,8 @@ class Header extends Component {
 	      	<div className="container">
 	      		<div className="row row-header">
 	      			<div className="col-12 col-sm-6">
-	      				<h1>Shop Safe Marin</h1>
+	      				<img className="mb-2 logo" src="../assets/images/logo.png" alt="logo.png" />
+	      				<img className="mb-2 logom" src="../assets/images/logom.png" alt="logo.png" />
 	      				<p class="body">A single source of health and safety information on grocery stores located in Marin County. Submit your reviews now to help us foster a safer shopping environment.</p>
 	      			</div>
 	      		</div>

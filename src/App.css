@@ -11,16 +11,20 @@
 }
 
 .footer{
-    background-color: #C1D7E4;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
+    background-image: url("https://shopsafemarin.herokuapp.com/assets/images/home.png");
+    color: white;
 }
 .jumbotron {
     padding:70px 30px 70px 30px;
     margin:0px auto;
-    background: #659DBD;
-    color:floralwhite;
+    background-image: url("https://shopsafemarin.herokuapp.com/assets/images/jumbotron.png");
+    background-size: cover;
+    display: flex;
+    color: white;
     font-family: 'Raleway', sans-serif;
+    border-radius: 0px;
 }
 
 address{
@@ -30,7 +34,7 @@ address{
 }
 
 .navbar-dark {
-    background-image: linear-gradient(to right, #283E4B, #466D84) ;
+    background-color: #0A1013;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -50,11 +54,19 @@ address{
 }
 
 .body {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Montserrat', serif;
+}
+
+p {
+    font-family: 'Roboto', serif;
 }
 
 h3 {
     margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -104,8 +116,9 @@ h3 {
 }
 
 .bg {
-    background-image: url("http://localhost:3001/images/home.png");
+    background-color: floralwhite;
     height: 100vh;
+    background-image: url("https://shopsafemarin.herokuapp.com/assets/images/bananas.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -117,12 +130,57 @@ h3 {
 .textbox {
     border-radius: 10px;
     padding: 20px;
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     color: #696969;
     font-size: 14pt;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .cardbg {
     background: floralwhite;
+}
+
+.logo {
+    display: block;
+}
+
+.logom {
+    display: none;
+}
+
+@media all and (max-width: 499px) {
+    .logo {display: none;}
+    .logom {display: block}
+}
+
+.select {
+    background-color: floralwhite !important;
+}
+
+.buttonStyle {
+    color: floralwhite;
+    background-color: #008000;
+}
+
+.buttonStyle:hover {
+    color: white;
+    background-color: #006400;
+}
+
+.buttonStyle {
+    background-color: #008000;
+}
+
+.colorBar {
+    background-color: floralwhite;
+    height: 15vh;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addressFooter {
+    color: white;
 }

@@ -68,7 +68,7 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Control.text model=".firstname" id="firstname" name="firstname"
                                         placeholder="First Name"
-                                        className="form-control"
+                                        className="form-control select"
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }}
@@ -90,7 +90,7 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Control.text model=".lastname" id="lastname" name="lastname"
                                         placeholder="Last Name"
-                                        className="form-control"
+                                        className="form-control select"
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }}
@@ -112,7 +112,7 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Control.text model=".telnum" id="telnum" name="telnum"
                                         placeholder="Tel. Number"
-                                        className="form-control"
+                                        className="form-control select"
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15), isNumber
                                         }}
@@ -135,7 +135,7 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Control.text model=".email" id="email" name="email"
                                         placeholder="Email"
-                                        className="form-control"
+                                        className="form-control select"
                                         validators={{
                                             required, validEmail
                                         }}
@@ -164,7 +164,7 @@ class Contact extends Component {
                                 </Col>
                                 <Col md={{size: 3, offset: 1}}>
                                     <Control.select model=".contactType" name="contactType"
-                                        className="form-control ">
+                                        className="form-control select">
                                         <option>Tel.</option>
                                         <option>Email</option>
                                     </Control.select>
@@ -175,7 +175,7 @@ class Contact extends Component {
                                 <Col md={10}>
                                     <Control.textarea model=".message" id="message" name="message"
                                         rows="12"
-                                        className="form-control" />
+                                        className="form-control select" />
                                 </Col>
                             </Row>
                             <Row className="form-group">

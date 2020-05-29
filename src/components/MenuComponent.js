@@ -58,7 +58,7 @@ function GetStars(props) {
     );
   } else {
     return(
-      <p className="cardText">No reviews yet.</p>
+      <p className="cardText">No star ratings yet.</p>
     );
   }
 }
@@ -81,7 +81,7 @@ class FilterForm extends Component {
         <Row className="form-group">
           <Label htmlFor="store" className="mt-1 ml-4">Store:</Label>
           <Col md={3}>
-            <Control.select model=".filter" id="filter" name="filter" className="form-control" defaultValue="--">
+            <Control.select model=".filter" id="filter" name="filter" className="form-control select" defaultValue="--">
               <option value="--">--</option>
               <option value="Andronico's">Andronico's</option>
               <option value="Andy's Local Market">Andy's Local Market</option>
@@ -114,7 +114,7 @@ class FilterForm extends Component {
           </Col>
           <Label htmlFor="city" className="mt-1 ml-4">City:</Label>
           <Col md={3}>
-            <Control.select model=".city" id="city" name="city" className="form-control mb-4" defaultValue="--">
+            <Control.select model=".city" id="city" name="city" className="form-control mb-4 select" defaultValue="--">
               <option>--</option>
               <option value="Corte Madera">Corte Madera</option>
               <option value="Fairfax">Fairfax</option>
@@ -133,7 +133,7 @@ class FilterForm extends Component {
             </Control.select>
           </Col>
           <Col md={3}>
-              <Button type="submit" color="primary">
+              <Button type="submit" className="buttonStyle">
                   Filter
               </Button>
           </Col>

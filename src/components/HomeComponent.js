@@ -11,7 +11,7 @@ function Home(props) {
 						<div className="textbox text-center">
 							<p className="m-5">Grocery shopping is a necessity, even in the uncertain times we are currently living in. We have created Shop Safe to provide shoppers with data on how grocery stores in their area are implementing safety measures, so that they are able to make informed decisions about where they shop.</p>
 							<Link className="text-center" to={`/menu/`} >
-								<Button outline color="secondary" innerRef="">View Stores</Button>
+								<Button className="buttonStyle" innerRef="">View Stores</Button>
 							</Link>
 						</div>
 					</Col>

@@ -9,7 +9,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 const required = (val) => val && val.length;
-const validEmail = (val) => !/^[^!@#$%^&*]*(fuck| ass|shit|cunt|piss|dick|fag|pussy|nigger|chink|cock|twat| cum|boobs|bitch)[^!@#$%^&*]*/i.test(val);
+const validEmail = (val) => !/^[^!@#$%^&*]*(fuck| ass|shit|cunt|piss|dick|fag|pussy|nigger|chink|cock|twat| cum|boobs|bitch|butt)[^!@#$%^&*]*/i.test(val);
 
 class CommentForm extends Component {
 	constructor(props) {
@@ -47,7 +47,7 @@ class CommentForm extends Component {
 							</Row>
 							<Row className="form-group">
 								<Col>
-									<Control.select model=".rating" id="rating" name="rating" className="form-control">
+									<Control.select model=".rating" id="rating" name="rating" className="form-control select">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -63,7 +63,7 @@ class CommentForm extends Component {
 								<Col>
 									<Control.text model=".yourname" id="yourname" name="yourname"
 											placeholder="Your Name (optional)"
-											className="form-control"
+											className="form-control select"
 											validators={{
 												maxLength: maxLength(15)
 											}} />
