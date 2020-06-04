@@ -16,14 +16,8 @@ function Footer(props) {
                     </ul>
                 </div>
                 <div className="col-7 col-sm-5">
-                    <h5>Our Address</h5>
-                    <address className="addressFooter">
-		              113 Locust Avenue<br />
-		              Larkspur, CA<br />
-		              94939<br />
 		              <i className="fa fa-envelope fa-lg"></i>: <a className="footerText" href="mailto:shopsafemarin@gmail.com">
                          shopsafemarin@gmail.com</a>
-                    </address>
                 </div>
                 <div className="col-12 col-sm-4 align-self-center">
                     <div className="text-center">

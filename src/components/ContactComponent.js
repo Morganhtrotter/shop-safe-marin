@@ -43,13 +43,7 @@ class Contact extends Component {
                     <h3>Location Information</h3>
                     </div>
                     <div className="col-12 col-sm-4 offset-sm-1">
-                            <h5>Our Address</h5>
-                            <address>
-                            113 Locust Avenua<br />
-                            Larkspur, CA<br />
-                            94939<br />
                             <i className="fa fa-envelope"></i>: <a href="mailto:shopsafemarin@gmail.com">shopsafemarin@gmail.com</a>
-                            </address>
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">

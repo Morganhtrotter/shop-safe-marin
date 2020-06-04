@@ -1,1 +1,1 @@
-export const baseUrl = 'https://shopsafemarin.herokuapp.com/';
+export const baseUrl = 'http://shopsafemarin.us-east-2.elasticbeanstalk.com/';

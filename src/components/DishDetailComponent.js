@@ -14,7 +14,7 @@ import FiveStar from './FiveStarComponent';
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 const required = (val) => val && val.length;
-const validEmail = (val) => !/^[^!@#$%^&*]*(fuck| ass|shit|cunt|piss|dick|fag|pussy|nigger|chink|cock|twat| cum|boobs|bitch|butt)[^!@#$%^&*]*/i.test(val);
+const validEmail = (val) => !/^[^!@#$%^&*]*(fuck| ass|shit|cunt|piss|dick|fag|pussy|nigger|nigga|chink|cock|twat| cum|boob|bitch|butt| tit)[^!@#$%^&*]*/i.test(val);
 
 class CommentForm extends Component {
 	constructor(props) {
@@ -285,7 +285,7 @@ const DishDetail = (props) => {
           </Breadcrumb>
           	*/}
           <div className="col-12">
-            <h3>{props.dish.name.toUpperCase() + ", " + props.dish.address.toUpperCase()}</h3>
+            <h3><strong>{props.dish.name.toUpperCase()}</strong><br />{props.dish.address.toUpperCase()}</h3>
             <hr />
           </div>
         </div>

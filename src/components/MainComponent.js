@@ -7,6 +7,7 @@ import About from './AboutComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import ColorBar from './ColorBarComponent';
+import SurveyLink from './SurveyLink';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders, postFeedback } from '../redux/ActionCreators';
@@ -56,6 +57,7 @@ class Main extends Component {
 						leadersLoading={this.props.leaders.isLoading}
 						leadersErrMess={this.props.leaders.errMess}
 					/>
+					<SurveyLink />
 					<ColorBar />
 				</div>
 			);

@@ -71,7 +71,6 @@ class FilterForm extends Component {
   }
 
   handleSubmit(values) {
-    console.log(values.city);
     this.props.setFilter(values.filter + ";" + values.city);
   }
 
@@ -149,7 +148,6 @@ const Menu = (props) => {
 
   if (filter !== null) {
     filterArr = filter.split(';');
-    console.log(filterArr[1]);
   }  
   let dishes = props.dishes.dishes;
   if (filter !== null) {
