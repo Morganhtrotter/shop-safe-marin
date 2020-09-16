@@ -6,13 +6,15 @@ export const addComment = (comment) => ({
 	payload: comment
 });
 
-export const postComment = (dishId, rating, author, comment, masks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery) => (dispatch) => {
+export const postComment = (dishId, rating, author, comment, ymasks, nmasks, mmasks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery) => (dispatch) => {
 	const newComment = {
 		dishId: dishId,
 		rating: rating,
 		author: author,
 		comment: comment,
-		masks: masks,
+		ymasks: ymasks,
+		nmasks: nmasks,
+		mmasks: mmasks,
 		carts: carts,
 		sanitizer: sanitizer,
 		monitor: monitor,

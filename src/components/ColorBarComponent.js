@@ -5,8 +5,7 @@ function ColorBar(props) {
 	return(
 		<div className="colorBar">
 			<Row>
-				<Col>
-					
+				<Col>		
 				</Col>
 			</Row>
 		</div>

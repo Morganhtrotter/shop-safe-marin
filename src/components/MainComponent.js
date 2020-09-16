@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	postComment: (dishId, rating, author, comment, masks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery) => dispatch(postComment(dishId, rating, author, comment, masks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery)),
+	postComment: (dishId, rating, author, comment, ymasks, nmasks, mmasks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery) => dispatch(postComment(dishId, rating, author, comment, ymasks, nmasks, mmasks, carts, sanitizer, monitor, oneway, register, card, numcust, gloves, curb, delivery)),
 	fetchDishes: () => {dispatch(fetchDishes())},
 	resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
 	fetchComments: () => {dispatch(fetchComments())},

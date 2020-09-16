@@ -34,7 +34,11 @@ class CommentForm extends Component {
 
 	handleSubmit(values) {
       this.toggleModal();
-      this.props.postComment(this.props.dishId, values.rating, values.yourname, values.comment, values.masks, values.carts, values.sanitizer, values.monitor, values.oneway, values.register, values.card, values.numcust, values.gloves, values.curb, values.delivery);
+      this.props.postComment(this.props.dishId, values.rating, values.yourname, 
+      			values.comment, values.ymasks, values.nmasks, values.mmasks,
+      			values.carts, values.sanitizer,
+      			values.monitor, values.oneway, values.register, values.card,
+      			values.numcust, values.gloves, values.curb, values.delivery);
 	}
 
 	render() {
@@ -83,18 +87,80 @@ class CommentForm extends Component {
 								</Col>
 							</Row>
 							<Row className="form-group">
-							
-									<Label htmlFor="checklist" md={10}>Check for yes or leave blank for no:</Label>
-								
+								<Label htmlFor="checklist" md={10}>Do they require masks?</Label>
 							</Row>
 							<Row className="form-group">
 								<Col>
 									<div className="form-check">
                                         <Label check>
-                                            <Control.checkbox model=".masks" id="masks" name="masks"
+                                            <Control.checkbox model=".ymasks" id="ymasks" name="masks"
                                                 className="form-check-input"
+                                                class="masks"
+                                                onClick={selectOnlyThis(this, this.props.name)}
                                                 /> {' '}
-                                            <span>Do they require Masks?</span>
+                                            <span>yes</span>
+                                        </Label>
+                                    </div>
+								</Col>
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".nmasks" id="nmasks" name="masks"
+                                                className="form-check-input"
+                                                class="masks"
+                                                onClick={selectOnlyThis(this, this.props.name)}
+                                                /> {' '}
+                                            <span>no</span>
+                                        </Label>
+                                    </div>
+								</Col>
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".mmasks" id="mmasks" name="masks"
+                                                className="form-check-input"
+                                                class="masks"
+                                                onClick={selectOnlyThis(this, this.props.name)}
+                                                /> {' '}
+                                            <span>not sure</span>
+                                        </Label>
+                                    </div>
+								</Col>
+							</Row>
+							<Row className="form-group">
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".ycarts" id="ycarts" name="carts"
+                                                className="form-check-input"
+                                                class="carts"
+                                                onClick={selectOnlyThis(this, this.props.name)}
+                                                /> {' '}
+                                            <span>yes</span>
+                                        </Label>
+                                    </div>
+								</Col>
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".ncarts" id="ncarts" name="carts"
+                                                className="form-check-input"
+                                                class="carts"
+                                                onClick={selectOnlyThis(this, this.props.name)}
+                                                /> {' '}
+                                            <span>no</span>
+                                        </Label>
+                                    </div>
+								</Col>
+								<Col>
+									<div className="form-check">
+                                        <Label check>
+                                            <Control.checkbox model=".mcarts" id="mcarts" name="carts"
+                                                className="form-check-input"
+                                                class="carts"
+                                                onClick={selectOnlyThis(this, this.props.name)}
+                                                /> {' '}
+                                            <span>not sure</span>
                                         </Label>
                                     </div>
 								</Col>
@@ -304,6 +370,15 @@ const DishDetail = (props) => {
 	}
 }
 
+function selectOnlyThis(id, name){
+	console.log(id.props.name);
+  var myCheckbox = document.getElementsByName(name);
+  Array.prototype.forEach.call(myCheckbox,function(el){
+  	el.checked = false;
+  });
+  id.checked = true;
+}
+
 function RenderDish({ dish, comments }) {
 	var percentMasks = 0;
 	var percentCarts = 0;
@@ -431,7 +506,7 @@ function RenderComments({ comments, postComment, dishId }) {
       		<Fade in>
 		        <li>{comment.comment}</li>
 		        <li>
-		          --{comment.author} ,{" "}
+		          --{comment.author},{" "}
 		          {new Intl.DateTimeFormat("en-US", {
 		            year: "numeric",
 		            month: "short",

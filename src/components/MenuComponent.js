@@ -87,7 +87,6 @@ class FilterForm extends Component {
               <option value="Andy's Sun Valley Market">Andy's Sun Valley Market</option>
               <option value="Cardenas Market">Cardenas Market</option>
               <option value="Costco Wholesale">Costco Wholesale</option>
-              <option value="CVS">CVS</option>
               <option value="Fairfax Market">Fairfax Market</option>
               <option value="Good Earth">Good Earth</option>
               <option value="Harvest Market & Grocery">Harvest Market & Grocery</option>

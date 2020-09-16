@@ -1,4 +1,4 @@
-.row-header{
+ .row-header{
     margin:0px auto;
     padding:0px auto;
 }
@@ -13,13 +13,14 @@
 .footer{
     margin:0px auto;
     padding: 20px 0px 20px 0px;
-    background-image: url("http://shopsafemarin.us-east-2.elasticbeanstalk.com/assets/images/home.png");
+    background-image: url("http://shopsafemarin-env.eba-vjj6mcnm.us-east-2.elasticbeanstalk.com/assets/images/home.png");
     color: white;
 }
+
 .jumbotron {
     padding:70px 30px 70px 30px;
     margin:0px auto;
-    background-image: url("http://shopsafemarin.us-east-2.elasticbeanstalk.com/assets/images/jumbotron.png");
+    background-image: url("http://shopsafemarin-env.eba-vjj6mcnm.us-east-2.elasticbeanstalk.com/assets/images/jumbotron.png");
     background-size: cover;
     display: flex;
     color: white;
@@ -118,7 +119,7 @@ h2 {
 .bg {
     background-color: floralwhite;
     height: 100vh;
-    background-image: url("http://shopsafemarin.us-east-2.elasticbeanstalk.com/assets/images/bananas.png");
+    background-image: url("http://shopsafemarin-env.eba-vjj6mcnm.us-east-2.elasticbeanstalk.com/assets/images/bananas.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
