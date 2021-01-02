@@ -4,6 +4,7 @@ import { baseUrl } from '../shared/baseUrl';
 import { Stagger, Fade } from 'react-animation-components';
 
 function About(props) {
+
     const leaders = props.leaders.leaders.map((leader) => {
         return (
             <Fade in>

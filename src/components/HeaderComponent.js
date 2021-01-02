@@ -28,14 +28,6 @@ class Header extends Component {
 		});
 	}
 
-	/*
-	handleLogin(event) {
-		this.toggleModal();
-		alert("Username: " + this.username.value + " Password: " + this.password.value + " Remember: " + this.remember.checked);
-		event.preventDefault();
-	}
-	*/
-
 	render() {
 		return(
 			<React.Fragment>
@@ -88,7 +80,7 @@ class Header extends Component {
 	      			<div className="col-12 col-sm-6">
 	      				<img className="mb-2 logo" src="../assets/images/logo.png" alt="logo.png" />
 	      				<img className="mb-2 logom" src="../assets/images/logom.png" alt="logo.png" />
-	      				<p class="body">A single source of health and safety information on grocery stores located in Marin County. Submit your reviews now to help us foster a safer shopping environment.</p>
+	      				<p className="body">A single source of health and safety information on grocery stores located in Marin County. Submit your reviews now to help us foster a safer shopping environment.</p>
 	      			</div>
 	      		</div>
 	      	</div>

@@ -18,7 +18,6 @@ class App extends Component {
 				<HashRouter>
 				    <div className="App">
 					  <code>
-				        <pre>{JSON.stringify(firebaseApp.options, null, 2)}</pre>
 				      </code>
 				      <Main />
 				    </div>

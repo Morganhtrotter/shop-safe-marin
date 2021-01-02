@@ -25,6 +25,9 @@ firebase.initializeApp({
     measurementId: "G-6CGWFHY9B4"
 });
 
+// Get a reference to the database service
+var database = firebase.database();
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
