@@ -1,5 +1,3 @@
-What is this?
-
 During this pandemic, simple things such as going to the grocery store have become complicated. I have created a website that functions as a central destination for grocery stores' health and safety reviews in Marin County, in the hope that I can make people's trips to the store safer and simpler. The site uses React/Redux to save user's reviews and display it for anybody to see.
 
 ![Alt Text](https://github.com/Morganhtrotter/shop-safe-marin/blob/master/public/assets/images/HomePage.gif)
