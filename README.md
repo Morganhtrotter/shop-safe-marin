@@ -1,68 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+What is this?
 
-## Available Scripts
+During this pandemic, simple things such as going to the grocery store have become complicated. I have created a website that functions as a central destination for grocery stores' health and safety reviews in Marin County, in the hope that I can make people's trips to the store safer and simpler. The site uses React/Redux to save user's reviews and display it for anybody to see.
 
-In the project directory, you can run:
+![Alt Text](https://github.com/Morganhtrotter/shop-safe-marin/blob/master/public/assets/images/HomePage.gif)
 
-### `yarn start`
+To view or post a review, first navigate to the "Stores" page. Here, you can filter the available stores by chain, city, or a combination of the two.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Alt Text](https://github.com/Morganhtrotter/shop-safe-marin/blob/master/public/assets/images/Filter.gif)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+		  if (filter !== null) {
+		    filterArr = filter.split(';');
+		  }  
+		  let dishes = props.dishes.dishes;
+		  if (filter !== null) {
+		    if (filterArr[0] !== null && filterArr[0] !== "--") {
+		      dishes = dishes.filter((dish) => dish.name === filterArr[0]);
+		    }
+		    if (filterArr[1] !== null && filterArr[1] !== "--") {
+		      dishes = dishes.filter((dish) => dish.city === filterArr[1]);
+		    }
+		  }
 
-### `yarn test`
+Once you have found your desired store, click on it to view the available reviews. You can submit your own review by clicking the "Submit Review" button, and filling out the form.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Alt Text](https://github.com/Morganhtrotter/shop-safe-marin/blob/master/public/assets/images/Review.gif)
 
-### `yarn build`
+You can also navigate to the "Contact Us" page, and fill out the form to send us feedback. Your information will be uploaded to our JSON server, which is viewable at the same address.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Alt Text](https://github.com/Morganhtrotter/shop-safe-marin/blob/master/public/assets/images/Feedback.gif)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+		export const postFeedback = (firstname, lastname, telnum, email, agree, contactType, message) => (dispatch) => {
+			const newFeedback = {
+				firstname: firstname,
+				lastname: lastname,
+				telnum: telnum,
+				email: email,
+				agree: agree,
+				contactType: contactType,
+				message: message
+			}
+			newFeedback.date = new Date().toISOString();
+			return fetch(baseUrl + 'feedback', {
+				method: 'POST',
+				body: JSON.stringify(newFeedback),
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				credentials: 'same-origin'
+			})
+				.then(response => {
+					if (response.ok) {
+						return response;
+					}
+					else {
+						var error = new Error('Error ' + response.status + ': ' + response.statusText);
+						error.response = response;
+						throw error;
+					}
+				},
+				error => {
+					var errmess = new Error(error.message);
+					throw errmess;
+				})
+				.then(response => response.json())
+				.catch(error => { console.log('Post feedback ', error.message);
+					alert('Your feedback could not be posted\nError: ' + error.message);});
+		};
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project uses React/Redux to POST the users review data to a JSON-server, and then subsequently FETCHES that same data to be displayed on the respective grocery stores' page.
 
-### `yarn eject`
+It uses the react-redux-form library to create controlled forms for the user
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+		const maxLength = (len) => (val) => !(val) || (val.length <= len);
+		const minLength = (len) => (val) => (val) && (val.length >= len);
+		const required = (val) => val && val.length;
+		...
+		<Row className="form-group">
+			<Col>
+				<Control.text model=".yourname" id="yourname" name="yourname"
+						placeholder="Your Name (optional)"
+						className="form-control"
+						validators={{
+							maxLength: maxLength(15)
+						}} />
+				<Errors 
+						className="text-danger"
+						model=".yourname"
+						show="touched"
+						messages={{
+							maxLength: 'Must be 15 characters or less'
+						}}
+				/>
+			</Col>
+		</Row>
