@@ -69,9 +69,9 @@ You can also navigate to the "Contact Us" page, and fill out the form to send us
 					alert('Your feedback could not be posted\nError: ' + error.message);});
 		};
 
-This project uses React/Redux to POST the users review data to a JSON-server, and then subsequently FETCHES that same data to be displayed on the respective grocery stores' page.
+As mentioned above, this project uses React/Redux to Post the users review data to a JSON server, and then subsequently Fetches that same data to be displayed on the respective grocery stores' page.
 
-It uses the react-redux-form library to create controlled forms for the user
+It uses the React Redux Form library to create controlled forms for the user.
 
 		const maxLength = (len) => (val) => !(val) || (val.length <= len);
 		const minLength = (len) => (val) => (val) && (val.length >= len);
