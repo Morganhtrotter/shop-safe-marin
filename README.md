@@ -1,3 +1,7 @@
+This application uses Redux Thunk, Fetch/Post and the REST API to send and retreive clients curated data with a JSON server. Users can upload safety reviews for grocery stores and send site feedback to a JSON server. Both of the forms for safety reviews and the site feedback implement the React Redux Form library and validators to make controlled forms. This site also uses Reactstrap to create a responsive design that adjusts based on the users device, viewable on desktop or mobile. Furthermore, this site utilizes the React Transition Group library to animate various page elements when navigating between pages and applies the React Router DOM library to allow the user to navigate between pages.
+
+What is this?
+
 During this pandemic, simple things such as going to the grocery store have become complicated. I have created a website that functions as a central destination for grocery stores' health and safety reviews in Marin County, in the hope that I can make people's trips to the store safer and simpler. The site uses React/Redux to save user's reviews and display it for anybody to see.
 
 ![Alt Text](https://github.com/Morganhtrotter/shop-safe-marin/blob/master/public/assets/images/HomePage.gif)
