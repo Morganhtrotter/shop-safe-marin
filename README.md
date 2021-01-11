@@ -2,7 +2,7 @@ Front-End Frameworks, Languages and Libraries used: React.js, Redux, Reactstrap,
 
 Back-End Languages and Technologies used: Node.js, AWS Elastic Beanstalk, Yarn, JSON server
 
-This application uses Redux Thunk, Fetch/Post and the REST API to send and retreive clients curated data with a JSON server. Users can upload safety reviews for grocery stores and send site feedback to a JSON server. Both of the forms for safety reviews and the site feedback implement the React Redux Form library and validators to make controlled forms. This site also uses Reactstrap to create a responsive design that adjusts based on the users device, viewable on desktop or mobile. Furthermore, this site utilizes the React Transition Group library to animate various page elements when navigating between pages and applies the React Router DOM library to allow the user to navigate between pages.
+This application uses Redux Thunk, Fetch/Post and the REST API to send and retrieve clients curated data with a JSON server. Users can upload safety reviews for grocery stores and send site feedback to a JSON server. Both of the forms for safety reviews and the site feedback implement the React Redux Form library and validators to make controlled forms. This site also uses Reactstrap to create a responsive design that adjusts based on the users device, viewable on desktop or mobile. Furthermore, this site utilizes the React Transition Group library to animate various page elements when navigating between pages and applies the React Router DOM library to allow the user to navigate between pages.
 
 What is this?
 
