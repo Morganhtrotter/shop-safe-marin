@@ -14,7 +14,7 @@ import FiveStar from './FiveStarComponent';
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 const required = (val) => val && val.length;
-const validEmail = (val) => !/^[^!@#$%^&*]*(fuck| ass|shit|cunt|piss|dick|fag|pussy|nigger|nigga|chink|cock|twat| cum|boob|bitch|butt| tit)[^!@#$%^&*]*/i.test(val);
+const validEmail = (val) => !/^[^!@#$%^&*]*()[^!@#$%^&*]*/i.test(val);
 
 class CommentForm extends Component {
 	constructor(props) {
